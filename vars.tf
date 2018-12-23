@@ -210,12 +210,20 @@ variable "igw_tags" {
 
 variable "public_subnet_tags" {
   description = "Additional tags for the public subnets"
-  default     = {}
+  type        = "map"
+
+  default = {
+    Name = "public"
+  }
 }
 
 variable "private_subnet_tags" {
   description = "Additional tags for the private subnets"
-  default     = {}
+  type        = "map"
+
+  default = {
+    Name = "private"
+  }
 }
 
 variable "public_route_table_tags" {
