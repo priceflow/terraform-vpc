@@ -180,7 +180,7 @@ resource "aws_subnet" "public" {
   availability_zone       = "${element(var.azs, count.index)}"
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
-  tags = "${merge(map("Name", format("%s-${var.public_subnet_suffix}-public-%s", var.name, element(var.azs, count.index))), var.tags, var.public_subnet_tags, "public")}"
+  tags = "${merge(map("Name", format("%s-${var.public_subnet_suffix}-%s-public", var.name, element(var.azs, count.index))), var.tags, var.public_subnet_tags, "public")}"
 }
 
 #################
@@ -193,7 +193,7 @@ resource "aws_subnet" "private" {
   cidr_block        = "${var.private_subnets[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
 
-  tags = "${merge(map("Name", format("%s-${var.private_subnet_suffix}-private-%s", var.name, element(var.azs, count.index))), var.tags, var.private_subnet_tags)}"
+  tags = "${merge(map("Name", format("%s-${var.private_subnet_suffix}-%s-private", var.name, element(var.azs, count.index))), var.tags, var.private_subnet_tags)}"
 }
 
 ##################
