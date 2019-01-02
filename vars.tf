@@ -258,12 +258,20 @@ variable "intra_route_table_tags" {
 
 variable "database_subnet_tags" {
   description = "Additional tags for the database subnets"
-  default     = {}
+  type        = "map"
+
+  default = {
+    Name = "db"
+  }
 }
 
 variable "database_subnet_group_tags" {
   description = "Additional tags for the database subnet group"
-  default     = {}
+  type        = "map"
+
+  default = {
+    Name = "db"
+  }
 }
 
 variable "redshift_subnet_tags" {
