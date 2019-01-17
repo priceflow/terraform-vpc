@@ -307,7 +307,7 @@ resource "aws_nat_gateway" "this" {
 
   tags = "${merge(map("Name", format("%s-%s", var.name, element(var.azs, (var.single_nat_gateway ? 0 : count.index)))), var.tags, var.nat_gateway_tags)}"
 
-  depends_on = ["aws_internet_gateway.this"]
+  depends_on = ["aws_internet_gateway.this", "aws_eip.nat"]
 }
 
 resource "aws_route" "private_nat_gateway" {
