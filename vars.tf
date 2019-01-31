@@ -83,7 +83,7 @@ variable "elasticache_subnets" {
 
 variable "create_database_subnet_route_table" {
   description = "Controls if separate route table for database should be created"
-  default     = false
+  default     = true
 }
 
 variable "create_redshift_subnet_route_table" {
@@ -109,7 +109,7 @@ variable "create_database_subnet_group" {
 
 variable "create_database_internet_gateway_route" {
   description = "Controls if an internet gateway route for public database access should be created"
-  default     = false
+  default     = true
 }
 
 variable "azs" {
